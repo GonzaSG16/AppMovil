@@ -5,10 +5,12 @@ import { Header } from '../../Components'
 import React from 'react'
 import dataCategories from '../../data/dataCategories'
 import styles from './Home.style'
+import Counter from '../../Components/Counter'
 
 const Home = ({ setCategorySelected, navigation }) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
+      <Counter />
       <Header title={'Categories'} />
       <View style={styles.container}>
         <FlatList
@@ -22,7 +24,7 @@ const Home = ({ setCategorySelected, navigation }) => {
           )}
         />
       </View>
-    </SafeAreaView>
+    </View>
   )
 }
 

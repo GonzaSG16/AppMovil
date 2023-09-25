@@ -4,7 +4,7 @@ import { colors } from '../../constants/colors'
 export default styles = StyleSheet.create({
     container: {
         backgroundColor: colors.celeste,
-        height: 80,
+        height: 90,
         paddingTop: 40,
         width: '100%',
         justifyContent: 'center',

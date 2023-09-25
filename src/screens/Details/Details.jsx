@@ -3,8 +3,10 @@ import { Image, Text, View } from 'react-native'
 import { Header } from '../../Components'
 import React from 'react'
 import styles from './Details.style'
+import { useSelector } from 'react-redux'
 
 const Details = ({ route }) => {
+    const counter = useSelector(state => state.counter.value)
     const { product } = route.params
     return (
         <View style={styles.container}>

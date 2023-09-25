@@ -11,7 +11,7 @@ export default styles = StyleSheet.create({
     },
     title: {
         fontSize: 30,
-        FontFamily: 'Alata',
+        fontFamily: 'Alata',
         marginVertical: 15,
     },
     price: {
