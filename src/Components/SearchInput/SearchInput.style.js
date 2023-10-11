@@ -6,17 +6,22 @@ export default styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        marginTop: '10%',
         width: '90%',
         paddingTop: 10,
     },
     input: {
-        color: 'white',
-        backgroundColor: colors.marronrojito,
+        color: 'black',
+        backgroundColor: colors.blanco,
         borderRadius: 8,
         padding: 10,
         borderWidth: 1,
-        borderColor: colors.marronrojito,
+        borderColor: colors.ml,
         width: '80%',
+        fontSize: 20,
+    },
+    cancel: {
+        color: 'black',
         fontSize: 20,
     }
 })

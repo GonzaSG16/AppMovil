@@ -1,42 +1,78 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { StyleSheet, View } from 'react-native'
+
 import CartNavigator from './CartNavigator'
-import OrdersNavigator from './OrdersNavigator'
-import StackNavigator from "./StackNavigator"
-import { StyleSheet } from 'react-native'
-import { colors } from "../constants/colors"
 import Feather from '@expo/vector-icons/Feather'
+import OrdersNavigator from './OrdersNavigator'
+import ProfileNavigator from './ProfileNavigator'
+import StackNavigator from './StackNavigator'
+import { colors } from '../constants/colors'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 const BottomTab = createBottomTabNavigator()
 
 function BottomTabNavigator() {
-    return <BottomTab.Navigator initialRouteName="Inicio" screenOptions={{ headerShown: false, tabBarShowLabel: false, tabBarStyle: styles.tabBar }}>
-        <BottomTab.Screen name="Inicio" component={StackNavigator} options={{
-            tabBarIcon: ({ focused }) => (
-                <Feather name='home' size={24} color={focused ? '#fff' : colors.celesoscuro} />
-            )
+  return (
+    <BottomTab.Navigator
+      initialRouteName="Shop"
+      screenOptions={{
+        headerShown: false,
+        tabBarShowLabel: false,
+        tabBarStyle: styles.tabBar,
+      }}
+    >
+      <BottomTab.Screen
+        name="Shop"
+        component={StackNavigator}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={focused}>
+              <Feather name="shopping-bag" size={24} color={focused ? colors.celeste : colors.black} />
+            </View>
+          ),
         }}
-        />
-        <BottomTab.Screen name="Carrito" component={CartNavigator} options={{
-            tabBarIcon: ({ focused }) => (
-                <Feather name='shopping-cart' size={24} color={focused ? '#fff' : colors.celesoscuro} />
-            )
+      />
+      <BottomTab.Screen
+        name="CartNav"
+        component={CartNavigator}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={focused}>
+              <Feather name="shopping-cart" size={24} color={focused ? colors.celeste : colors.black} />
+            </View>
+          ),
         }}
-        />
-        <BottomTab.Screen name="CartNav" component={OrdersNavigator} options={{
-            tabBarIcon: ({ focused }) => (
-                <Feather name='list' size={24} color={focused ? '#fff' : colors.celesoscuro} />
-            )
+      />
+      <BottomTab.Screen
+        name="OrdersNav"
+        component={OrdersNavigator}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={focused}>
+              <Feather name="list" size={24} color={focused ? colors.celeste : colors.black} />
+            </View>
+          ),
         }}
-        />
+      />
+      <BottomTab.Screen
+        name="ProfileNav"
+        component={ProfileNavigator}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={focused}>
+              <Feather name="user" size={24} color={focused ? colors.celeste : colors.black} />
+            </View>
+          ),
+        }}
+      />
     </BottomTab.Navigator>
+  )
 }
 
 export default BottomTabNavigator
 
-
-
 const styles = StyleSheet.create({
-    tabBar: {
-        backgroundColor: colors.celeste,
-    }
+  tabBar: {
+    backgroundColor: colors.blanco,
+    paddingTop: 5,
+  },
 })

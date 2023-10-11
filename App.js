@@ -1,10 +1,14 @@
+import MainNavigator from './src/navigation/MainNavigator'
+import { NavigationContainer } from '@react-navigation/native'
+import { Provider } from 'react-redux'
 import fonts from './src/global/fonts'
-import StackNavigator from './src/navigation/StackNavigator'
+import store from './src/store'
 import { useFonts } from 'expo-font'
-import { NavigationContainer } from "@react-navigation/native";
-import BottomTabNavigator from './src/navigation/BottomTabNavigator';
-import { Provider } from 'react-redux';
-import { store } from './src/store';
+import { init } from './src/db'
+
+init()
+  .then(() => console.log('DB Initialized'))
+  .catch(err => console.log('DB failed while initializating', err.message))
 
 export default function App() {
   const [fontsLoaded] = useFonts(fonts)
@@ -16,7 +20,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <BottomTabNavigator />
+        <MainNavigator />
       </NavigationContainer>
     </Provider>
   )

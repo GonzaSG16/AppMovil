@@ -1,16 +1,18 @@
 import { StyleSheet } from 'react-native'
+import { colors } from '../../../../constants/colors'
 
 export default styles = StyleSheet.create({
-  cardContainer: {
-    marginHorizontal: 30,
-    marginVertical: 10,
-    padding: 10,
-    minWidth: 90,
-    maxWidth: 400,
-    width: '85%',
-    height: 50,
-    minHeight: 35,
+  container: {
+    backgroundColor: colors.verdito,
+    marginVertical: 15,
+    height: 100,
+    borderRadius: 20,
     justifyContent: 'center',
-    alignItems: 'center',
+  },
+  contentContainer: {
+    paddingLeft: 20,
+  },
+  text: {
+    fontSize: 18,
   },
 })

@@ -7,4 +7,8 @@ export const colors = {
     rojoopaco: '#EF233C',
     verdito: '#00FF00',
     celesoscuro: '#131627',
+    ml: '#ffe600',
+    blanco: '#FFFFFF',
+    gris: '#e0e0e0',
+    negro: '#000000',
 }

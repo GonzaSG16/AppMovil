@@ -7,7 +7,8 @@ export default styles = StyleSheet.create({
         height: 90,
         paddingTop: 40,
         width: '100%',
-        justifyContent: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
         alignItems: 'center',
     },
     text: {
