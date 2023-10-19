@@ -6,7 +6,7 @@ export default styles = StyleSheet.create({
     margin: 15,
     padding: 8,
     borderRadius: 20,
-    backgroundColor: colors.grey,
+    backgroundColor: colors.gris,
   },
   name: {
     fontSize: 18,

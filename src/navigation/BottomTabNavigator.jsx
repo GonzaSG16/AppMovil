@@ -26,7 +26,7 @@ function BottomTabNavigator() {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={focused}>
-              <Feather name="shopping-bag" size={24} color={focused ? colors.celeste : colors.black} />
+              <Feather name="home" size={24} color={focused ? colors.celeste : colors.black} />
             </View>
           ),
         }}
@@ -48,7 +48,7 @@ function BottomTabNavigator() {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={focused}>
-              <Feather name="list" size={24} color={focused ? colors.celeste : colors.black} />
+              <Feather name="shopping-bag" size={24} color={focused ? colors.celeste : colors.black} />
             </View>
           ),
         }}

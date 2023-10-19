@@ -1,9 +1,10 @@
 import * as ImagePicker from 'expo-image-picker'
 
-import { Image, Pressable, Text, View } from 'react-native'
+import { Image, Pressable, Text, View, StatusBar } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
+import { clearUser } from '../../features/auth/authSlice'
+import { deleteSession } from '../../db'
 import { setCameraImage } from '../../features/auth/authSlice'
 import styles from './Profile.styles'
 import { usePostProfileImageMutation } from '../../services/shopApi'
@@ -45,6 +46,11 @@ const Profile = ({ navigation }) => {
     triggerSaveProfileImage({ image, localId })
   }
 
+  const logout = () => {
+    dispatch(clearUser())
+    deleteSession()
+  }
+
   return (
     <View style={styles.container}>
       {image ? (
@@ -69,6 +75,9 @@ const Profile = ({ navigation }) => {
       </Pressable>
       <Pressable style={styles.cameraButton} onPress={confirmImage}>
         <Text>Confirmar</Text>
+      </Pressable>
+      <Pressable onPress={logout}>
+        <Text>Desloguearse</Text>
       </Pressable>
     </View>
   )

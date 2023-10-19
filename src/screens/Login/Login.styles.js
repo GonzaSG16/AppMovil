@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { colors } from '../../constants/colors'
 
 export default styles = StyleSheet.create({
     container: {
@@ -7,7 +8,6 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
     },
     loginContainer: {
-        backgroundColor: 'red',
         width: '100%',
         paddingHorizontal: 20,
         justifyContent: 'center',
@@ -15,17 +15,25 @@ export default styles = StyleSheet.create({
     },
     inputEmail: {
         width: '95%',
-        backgroundColor: 'yellow',
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: colors.celeste,
+        backgroundColor: colors.blanco,
         height: 30,
         marginVertical: 15,
     },
     loginButton: {
-        backgroundColor: 'orange',
+        backgroundColor: colors.celeste,
         width: '50%',
         height: 50,
         borderRadius: 10,
         marginBottom: 15,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    validationText: {
+        color: 'red',
+        fontSize: 12,
+        marginBottom: 8,
     }
 })

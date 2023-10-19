@@ -6,9 +6,11 @@ export const colors = {
     celeste: '#03A9F4',
     rojoopaco: '#EF233C',
     verdito: '#00FF00',
-    celesoscuro: '#131627',
+    celesoscuro: '#0070f0',
     ml: '#ffe600',
     blanco: '#FFFFFF',
     gris: '#e0e0e0',
     negro: '#000000',
+    celesclaro: '#d1e7ff',
+    azul: '#0b5bb7',
 }

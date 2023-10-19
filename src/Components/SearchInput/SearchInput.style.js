@@ -7,21 +7,30 @@ export default styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         marginTop: '10%',
-        width: '90%',
+        width: '85%',
         paddingTop: 10,
+    },
+    backButton: {
+        marginLeft: '5%',
     },
     input: {
         color: 'black',
         backgroundColor: colors.blanco,
         borderRadius: 8,
         padding: 10,
-        borderWidth: 1,
-        borderColor: colors.ml,
-        width: '80%',
+        width: '75%',
         fontSize: 20,
+        marginLeft: '6%',
     },
     cancel: {
         color: 'black',
         fontSize: 20,
+    },
+    search: {
+        marginLeft: '3%',
+    },
+    close: {
+        marginLeft: '3%',
+        marginRight: '6%',
     }
 })

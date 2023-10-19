@@ -1,64 +1,83 @@
-import { Pressable, Text, TextInput, View } from 'react-native'
-import React, { useState } from 'react'
-
-import { setUser } from '../../features/auth/authSlice'
-import styles from './Login.styles'
-import { useDispatch } from 'react-redux'
-import { useLoginMutation } from '../../services/authApi'
-import { insertSession } from '../../db'
+import { Pressable, Text, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
+import { insertSession } from '../../db';
+import { setUser } from '../../features/auth/authSlice';
+import styles from './Login.styles';
+import { useDispatch } from 'react-redux';
+import { useLoginMutation } from '../../services/authApi';
 
 const Login = ({ navigation }) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [triggerLogin, result] = useLoginMutation()
-  const dispatch = useDispatch()
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [triggerLogin] = useLoginMutation();
+  const dispatch = useDispatch();
+
+  const [showEmailValidation, setShowEmailValidation] = useState(false);
 
   const onSubmit = () => {
-    //console.log(email, password)
+    if (!email.includes('@')) {
+      setShowEmailValidation(true);
+      return;
+    } else {
+      setShowEmailValidation(false);
+    }
+
     triggerLogin({
       email,
       password,
     })
-    //console.log(result)
-    if (result.isSuccess) {
-      dispatch(setUser(result.data))
-      insertSession({
-        localId: result.data.localId,
-        email: result.data.email,
-        token: result.data.idToken,
-      })
-        .then(result => console.log(result))
-        .catch(error => console.log(error.message))
-    }
+      .unwrap()
+      .then(result => {
+        dispatch(setUser(result));
+        insertSession({
+          localId: result.localId,
+          email: result.email,
+          token: result.idToken,
+        })
+          .then(result => console.log(result))
+          .catch(error => console.log(error.message))
+      });
   }
 
   return (
     <View style={styles.container}>
       <View style={styles.loginContainer}>
-        <Text>Login to start</Text>
+        <Text>Inicia sesión para continuar</Text>
+
+        {showEmailValidation && (
+          <Text style={styles.validationText}>
+            El correo electrónico es inválido
+          </Text>
+        )}
+
         <TextInput
           style={styles.inputEmail}
           value={email}
           onChangeText={setEmail}
+          placeholder=" Correo electrónico"
+          placeholderStyle={{ paddingLeft: 10 }}
         />
         <TextInput
           style={styles.inputEmail}
           value={password}
           onChangeText={setPassword}
+          secureTextEntry={true}
+          placeholder=" Contraseña"
+          placeholderStyle={{ paddingLeft: 10 }}
         />
         <Pressable style={styles.loginButton} onPress={onSubmit}>
-          <Text style={{ color: 'white' }}>Login</Text>
+          <Text style={{ color: 'white' }}>Loguearse</Text>
         </Pressable>
-        <Text>Dont have an account?</Text>
+        <Text>Aún no tienes cuenta?</Text>
         <Pressable
           style={styles.loginButton}
           onPress={() => navigation.navigate('Signup')}
         >
-          <Text style={{ color: 'white' }}>Sign up</Text>
+          <Text style={{ color: 'white' }}>Registrarse</Text>
         </Pressable>
       </View>
     </View>
-  )
+  );
 }
 
-export default Login
+export default Login;

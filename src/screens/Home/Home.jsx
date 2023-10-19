@@ -1,30 +1,35 @@
-import { FlatList, SafeAreaView, StatusBar, View } from 'react-native'
-
-import { CategoryItem } from './components'
-import { Header } from '../../components'
-import React from 'react'
-import styles from './Home.style'
-import { useGetCategoriesQuery } from '../../services/shopApi'
+import React from 'react';
+import { FlatList, StatusBar, View } from 'react-native';
+import { CategoryItem } from './components';
+import { Header } from '../../components';
+import { useGetCategoriesQuery } from '../../services/shopApi';
+import styles from './Home.style';
 
 const Home = ({ navigation }) => {
-  const { data, isLoading } = useGetCategoriesQuery()
+  const { data, isLoading } = useGetCategoriesQuery();
+
+
   return (
     <View style={styles.container}>
       <StatusBar animated={true} barStyle={'dark-content'} />
-      <Header title={'Categories'} />
+      <Header title={'Categorias'} />
       <View style={styles.listContainer}>
         {!isLoading && (
           <FlatList
             data={data}
-            keyExtractor={category => category.title}
+            keyExtractor={(category) => category.title}
             renderItem={({ item }) => (
-              <CategoryItem category={item.title} navigation={navigation} />
+              <CategoryItem
+                category={item.title}
+                navigation={navigation}
+              />
             )}
+            contentContainerStyle={styles.flatListContent}
           />
         )}
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
