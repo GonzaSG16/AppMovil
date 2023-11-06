@@ -13,8 +13,6 @@ const Cart = () => {
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
-  const renderItem = ({ item }) => <CartItem item={item} />;
-
   const confirmCart = () => {
     if (cart.length === 0) {
       return;
@@ -40,7 +38,9 @@ const Cart = () => {
         <FlatList
           data={cart}
           keyExtractor={(item) => item.id}
-          renderItem={renderItem}
+          renderItem={({ item }) => (
+            <CartItem item={item} />
+          )}
           contentContainerStyle={styles.listContent}
         />
       </View>

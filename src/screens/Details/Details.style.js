@@ -7,9 +7,6 @@ export default styles = StyleSheet.create({
     marginTop: '0%',
     backgroundColor: colors.white,
   },
-  titleContainer: {
-    padding: 20,
-  },
   title: {
     fontSize: 20,
     marginTop: '5%',
@@ -38,11 +35,31 @@ export default styles = StyleSheet.create({
     margin: 20,
     marginTop: '-5%',
   },
+  quantityContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: '10%',
+    marginLeft: '3%',
+  },
+  quantityText: {
+    fontWeight: '500',
+    fontSize: 17,
+  },
+  quantityInput: {
+    width: '75%',
+    height: 40,
+    borderWidth: 1,
+    borderColor: colors.celesclaro,
+    borderRadius: 5,
+    marginLeft: 10,
+    paddingLeft: 10,
+    fontSize: 17,
+  },
   addToCartContainer: {
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: '5%',
   },
   addToCartButton: {
     backgroundColor: colors.celesclaro,

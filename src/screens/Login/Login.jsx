@@ -12,14 +12,14 @@ const Login = ({ navigation }) => {
   const [triggerLogin] = useLoginMutation();
   const dispatch = useDispatch();
 
-  const [showEmailValidation, setShowEmailValidation] = useState(false);
+  const [error, setError] = useState(null);
 
   const onSubmit = () => {
     if (!email.includes('@')) {
-      setShowEmailValidation(true);
+      setError('El correo electrónico es inválido');
       return;
     } else {
-      setShowEmailValidation(false);
+      setError(null);
     }
 
     triggerLogin({
@@ -34,8 +34,14 @@ const Login = ({ navigation }) => {
           email: result.email,
           token: result.idToken,
         })
-          .then(result => console.log(result))
-          .catch(error => console.log(error.message))
+          .then(() => {
+          })
+          .catch(error => {
+            setError('Correo o contraseña inválidos');
+          });
+      })
+      .catch(error => {
+        setError('Correo o contraseña inválidos');
       });
   }
 
@@ -44,9 +50,9 @@ const Login = ({ navigation }) => {
       <View style={styles.loginContainer}>
         <Text>Inicia sesión para continuar</Text>
 
-        {showEmailValidation && (
+        {error && (
           <Text style={styles.validationText}>
-            El correo electrónico es inválido
+            {error}
           </Text>
         )}
 
@@ -54,7 +60,7 @@ const Login = ({ navigation }) => {
           style={styles.inputEmail}
           value={email}
           onChangeText={setEmail}
-          placeholder=" Correo electrónico"
+          placeholder="Correo electrónico"
           placeholderStyle={{ paddingLeft: 10 }}
         />
         <TextInput
@@ -62,7 +68,7 @@ const Login = ({ navigation }) => {
           value={password}
           onChangeText={setPassword}
           secureTextEntry={true}
-          placeholder=" Contraseña"
+          placeholder="Contraseña"
           placeholderStyle={{ paddingLeft: 10 }}
         />
         <Pressable style={styles.loginButton} onPress={onSubmit}>

@@ -14,25 +14,21 @@ const Cartitem = ({ item }) => {
 
   return (
     <View style={styles.container}>
-      <View>
-        <Image
-          style={styles.image}
-          source={{
-            uri: item.images[0],
-          }}
-        />
-      </View>
-      <View>
+      <Image
+        style={styles.image}
+        source={{
+          uri: item.images[0],
+        }}
+      />
+      <View style={styles.itemDetails}>
         <Text style={styles.name}>{item.title}</Text>
+        <Text style={styles.price}>{`$${item.price.toFixed(2)}`}</Text>
       </View>
-      <View style={styles.details}>
-        <View>
-          <Text>{item.quantity}</Text>
-          <Text>{item.price}</Text>
-        </View>
-        <Pressable onPress={handleRemoveItem}>
+      <View style={styles.rightContent}>
+        <Pressable onPress={handleRemoveItem} style={styles.trashIcon}>
           <Feather name="trash" size={24} color={'red'} />
         </Pressable>
+        <Text style={styles.quantity}>{`Cantidad: ${item.quantity}`}</Text>
       </View>
     </View>
   );

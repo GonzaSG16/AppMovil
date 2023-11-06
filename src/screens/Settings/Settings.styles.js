@@ -1,8 +1,5 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { colors } from '../../constants/colors';
-
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
 
 export default styles = StyleSheet.create({
     container: {
@@ -21,23 +18,36 @@ export default styles = StyleSheet.create({
         color: colors.white,
         fontFamily: 'Alata',
     },
-    imageContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 20,
-    },
-    image: {
-        width: 300,
-        height: 300,
-        borderRadius: 150,
-    },
     buttonContainer: {
-        marginTop: 20,
+        flex: 1,
+        justifyContent: 'flex-end',
+    },
+    buttonContainer2: {
+        justifyContent: 'top',
+        marginTop: '2%',
         alignItems: 'center',
     },
-    cameraButton: {
+    buttonContainer3: {
         flex: 1,
-        backgroundColor: colors.celeste,
+        justifyContent: 'top',
+        marginTop: '2%',
+        marginLeft: '2%',
+        alignItems: 'flex-start',
+    },
+    ProfileTextBold: {
+        fontSize: 24,
+        color: colors.negro,
+        fontWeight: 'bold',
+    },
+    ProfileText: {
+        fontSize: 20,
+        color: colors.black,
+        marginTop: 10,
+        justifyContent: 'flex-start',
+    },
+    LogoutButton: {
+        flex: 1,
+        backgroundColor: colors.rojo,
         width: '94%',
         marginLeft: '3%',
         marginRight: '3%',
@@ -46,11 +56,10 @@ export default styles = StyleSheet.create({
         marginTop: '5%',
         justifyContent: 'center',
         alignItems: 'center',
-        maxHeight: '7%',
-        height: windowHeight * 0.25,
+        maxHeight: '15%',
     },
-    buttonText: {
-        fontSize: 18,
-        color: colors.negro,
+    LogoutText: {
+        fontSize: 22,
+        color: colors.white,
     },
 });

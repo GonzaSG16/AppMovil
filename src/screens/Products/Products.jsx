@@ -19,16 +19,18 @@ const Products = ({ navigation }) => {
   const { data, isLoading } = useGetProductsByCategoryQuery(category)
 
   useEffect(() => {
-    console.log(data, isLoading)
-    if (!isLoading) {
-      const dataArr = Object.values(data)
-      setProducts(dataArr)
-      const productsFiltered = dataArr.filter(product =>
-        product.title.includes(keyword)
-      )
-      setProducts(productsFiltered)
+    if (data) {
+      //console.log(data, isLoading)
+      if (!isLoading) {
+        const dataArr = Object.values(data)
+        setProducts(dataArr)
+        const productsFiltered = dataArr.filter(product =>
+          product.title.includes(keyword)
+        )
+        setProducts(productsFiltered)
+      }
     }
-  }, [isLoading, keyword])
+  }, [data, isLoading, keyword])
 
   return (
     <View style={styles.container}>

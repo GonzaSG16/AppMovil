@@ -4,12 +4,12 @@ import CartNavigator from './CartNavigator'
 import Feather from '@expo/vector-icons/Feather'
 import OrdersNavigator from './OrdersNavigator'
 import ProfileNavigator from './ProfileNavigator'
+import SettingsNavigator from './SettingsNavigator'
 import StackNavigator from './StackNavigator'
 import { colors } from '../constants/colors'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 const BottomTab = createBottomTabNavigator()
-
 function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
@@ -64,6 +64,17 @@ function BottomTabNavigator() {
           ),
         }}
       />
+      <BottomTab.Screen
+        name="SettingsNav"
+        component={SettingsNavigator}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={focused}>
+              <Feather name="align-justify" size={24} color={focused ? colors.celeste : colors.black} />
+            </View>
+          ),
+        }}
+      />
     </BottomTab.Navigator>
   )
 }
@@ -76,3 +87,17 @@ const styles = StyleSheet.create({
     paddingTop: 5,
   },
 })
+
+/*
+      <BottomTab.Screen
+        name="ProfileNav"
+        component={ProfileNavigator}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={focused}>
+              <Feather name="user" size={24} color={focused ? colors.celeste : colors.black} />
+            </View>
+          ),
+        }}
+      />
+*/

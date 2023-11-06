@@ -13,4 +13,5 @@ export const colors = {
     negro: '#000000',
     celesclaro: '#d1e7ff',
     azul: '#0b5bb7',
+    rojo: '#FF0000',
 }

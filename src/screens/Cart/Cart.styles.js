@@ -39,6 +39,7 @@ export default styles = StyleSheet.create({
   },
   totalText: {
     fontSize: 18,
+    marginLeft: '3%',
   },
   totalPrice: {
     fontSize: 18,

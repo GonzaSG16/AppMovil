@@ -30,14 +30,21 @@ const Signup = ({ navigation }) => {
       setShowEmailValidation(false);
     }
 
-    console.log(email, password, confirmPass);
+    if (password !== confirmPass) {
+      setShowPasswordValidation(true);
+      return;
+    } else {
+      setShowPasswordValidation(false);
+    }
+
+    //console.log(email, password, confirmPass);
     triggerSignup({
       email,
       password,
     })
       .unwrap()
       .then(result => {
-        console.log(result);
+        //console.log(result);
         dispatch(setUser(result));
       });
   }
@@ -49,7 +56,7 @@ const Signup = ({ navigation }) => {
 
         {showPasswordValidation && (
           <Text style={styles.validationText}>
-            La contraseña debe tener al menos 8 caracteres
+            Las contraseñas deben coincidir
           </Text>
         )}
 
