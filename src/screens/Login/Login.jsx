@@ -72,14 +72,14 @@ const Login = ({ navigation }) => {
           placeholderStyle={{ paddingLeft: 10 }}
         />
         <Pressable style={styles.loginButton} onPress={onSubmit}>
-          <Text style={{ color: 'white' }}>Loguearse</Text>
+          <Text style={{ color: 'white' }}>Ingresar</Text>
         </Pressable>
-        <Text>Aún no tienes cuenta?</Text>
+        <Text style={{ marginBottom: '2%' }}>Aún no tienes cuenta?</Text>
         <Pressable
           style={styles.loginButton}
           onPress={() => navigation.navigate('Signup')}
         >
-          <Text style={{ color: 'white' }}>Registrarse</Text>
+          <Text style={{ color: 'white' }}>Crear Cuenta</Text>
         </Pressable>
       </View>
     </View>

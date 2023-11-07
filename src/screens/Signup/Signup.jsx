@@ -88,9 +88,9 @@ const Signup = ({ navigation }) => {
           placeholder=" Confirmar Contraseña"
         />
         <Pressable style={styles.signupButton} onPress={onSubmit}>
-          <Text style={{ color: 'white' }}>Registrarse</Text>
+          <Text style={{ color: 'white' }}>Crear Cuenta</Text>
         </Pressable>
-        <Text>¿Ya tienes una cuenta?</Text>
+        <Text style={{ marginBottom: '2%' }}>¿Ya tienes una cuenta?</Text>
         <Pressable
           style={styles.signupButton}
           onPress={() => navigation.navigate('Login')}
